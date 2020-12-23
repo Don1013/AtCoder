@@ -17,7 +17,7 @@ distance = [[-1 for i in range(c)] for j in range(r)]  # 距離を記録する�
 
 def bfs(sx, sy, maze):
     queue = deque([[sy, sx]])
-    distance[sy][sx] = 0　  # スタートの距離は0
+    distance[sy][sx] = 0  # スタートの距離は0
     while queue:
         y, x = queue.popleft()
         d = distance[y][x]  # 位置(y, x)のスタートからの距離dを呼び出す
@@ -27,7 +27,7 @@ def bfs(sx, sy, maze):
                 maze[ny][nx] = "#"
                 queue.append([ny, nx])
                 distance[ny][nx] = d + 1  # (ny, nx)のスタートからの距離は(x, y)より1多い
-            if [gy, gx] == [ny, nx]:
+            if [gy, gx] == [ny, nx]:  # ゴールしたら終了
                 print(d + 1)
                 sys.exit()
 
